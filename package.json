@@ -1,5 +1,5 @@
 {
-  "name": "@yourusername/clockify-mcp",
+  "name": "@jeremyvyska/clockify-mcp",
   "version": "1.0.0",
   "description": "Feature-rich MCP server for Clockify API integration with full CRUD operations",
   "keywords": [
@@ -12,14 +12,14 @@
     "llm",
     "productivity"
   ],
-  "author": "Your Name <your.email@example.com>",
-  "homepage": "https://github.com/yourusername/clockify-mcp#readme",
+  "author": "Jeremy Vyska <jeremy@vyska.dev>",
+  "homepage": "https://github.com/JeremyVyska/clockify-mcp#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/clockify-mcp.git"
+    "url": "git+https://github.com/JeremyVyska/clockify-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/clockify-mcp/issues"
+    "url": "https://github.com/JeremyVyska/clockify-mcp/issues"
   },
   "type": "module",
   "main": "./build/index.js",

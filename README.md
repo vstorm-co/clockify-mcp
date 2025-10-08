@@ -1,5 +1,7 @@
 # Clockify MCP Server - Feature-Rich Edition
 
+[![Install with NPX - VS Code](https://img.shields.io/badge/Install%20with%20NPX-VS%20Code-0078d4?style=for-the-badge&logo=visual-studio-code)](https://vscode.dev/redirect/mcp/install?name=clockify-mcp&config={"type":"stdio","command":"npx","args":["@jeremyvyska/clockify-mcp"]})
+
 A comprehensive MCP (Model Context Protocol) server for Clockify API integration, providing full CRUD operations across all major Clockify features. This server enables LLMs like Claude to manage your entire Clockify workspace - from workspaces and clients to projects, tasks, tags, and time tracking.
 
 ## Features
