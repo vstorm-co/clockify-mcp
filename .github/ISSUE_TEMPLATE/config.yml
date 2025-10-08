@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or Discussion
+    url: https://github.com/yourusername/clockify-mcp/discussions
+    about: Ask questions or discuss ideas with the community
+  - name: Clockify API Documentation
+    url: https://docs.developer.clockify.me/
+    about: Official Clockify API documentation
+  - name: MCP Specification
+    url: https://modelcontextprotocol.io/
+    about: Learn more about the Model Context Protocol
