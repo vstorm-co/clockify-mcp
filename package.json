@@ -1,6 +1,6 @@
 {
   "name": "@michalsikorski/clockify-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Feature-rich MCP server for Clockify API integration with full CRUD operations",
   "keywords": [
     "mcp",
