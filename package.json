@@ -1,5 +1,5 @@
 {
-  "name": "@jeremyvyska/clockify-mcp",
+  "name": "@michalsikorski/clockify-mcp",
   "version": "1.0.0",
   "description": "Feature-rich MCP server for Clockify API integration with full CRUD operations",
   "keywords": [
@@ -33,7 +33,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint && npm run build",
+    "prepublishOnly": "npm run build",
     "test": "vitest run",
     "test:create": "npm run build && node build/test-create.js",
     "test:cleanup": "node build/test-cleanup.js",

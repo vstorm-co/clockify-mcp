@@ -8,6 +8,7 @@ import type {
   CallToolRequest,
 } from "@modelcontextprotocol/sdk/types.js";
 import * as workspaces from "./api/workspaces.js";
+import * as users from "./api/users.js";
 import * as clients from "./api/clients.js";
 import * as projects from "./api/projects.js";
 import * as tasks from "./api/tasks.js";
@@ -69,6 +70,43 @@ export async function listToolsHandler(_request: ListToolsRequest) {
                 trackTimeDownToSecond: { type: "boolean" },
                 isProjectPublicByDefault: { type: "boolean" },
               },
+            },
+          },
+          required: ["workspaceId"],
+        },
+      },
+      // User Management
+      {
+        name: "listUsers",
+        description:
+          "Find users in a workspace. Use the 'name' filter to look up a person's userId by their full name (case-insensitive substring match). Call this to resolve a person's name to a userId before using tools that require userId, such as listTimeEntries or getActiveTimer.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            workspaceId: {
+              type: "string",
+              description: "The workspace ID",
+            },
+            name: {
+              type: "string",
+              description: "Filter by full name or part of it (optional)",
+            },
+            email: {
+              type: "string",
+              description: "Filter by email or part of it (optional)",
+            },
+            status: {
+              type: "string",
+              description:
+                "Filter by status: ACTIVE, INACTIVE, PENDING, or ALL (optional)",
+            },
+            page: {
+              type: "number",
+              description: "Page number (optional)",
+            },
+            pageSize: {
+              type: "number",
+              description: "Results per page, max 5000 (optional)",
             },
           },
           required: ["workspaceId"],
@@ -954,6 +992,35 @@ export async function callToolHandler(request: CallToolRequest) {
         };
       }
 
+      // User tools
+      case "listUsers": {
+        const { workspaceId, name, email, status, page, pageSize } = args as {
+          workspaceId: string;
+          name?: string;
+          email?: string;
+          status?: "ACTIVE" | "INACTIVE" | "PENDING" | "ALL";
+          page?: number;
+          pageSize?: number;
+        };
+        if (!workspaceId) {
+          throw new Error("workspaceId is required");
+        }
+        const result = await users.listUsers(workspaceId, {
+          name,
+          email,
+          status,
+          page,
+          pageSize,
+        });
+        return {
+          content: [
+            {
+              type: "text",
+              text: JSON.stringify(result, null, 2),
+            },
+          ],
+        };
+      }
       // Client tools
       case "listClients": {
         const { workspaceId, archived, name, page, pageSize } = args as {
